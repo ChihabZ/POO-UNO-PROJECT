@@ -6,7 +6,7 @@ public class card( Colour colour, Type type, Int  val) {
     
 
 
-public List<Card> cartes = new List<Card>();
+private  List<Card> cartes = new List<Card>();
 
 
 public void initCard() {
@@ -46,8 +46,10 @@ if (c !=WILD){
 }
 
 
-
-
+public List<Card>getcartes()
+{
+    return cartes;
+}
 
 
 
