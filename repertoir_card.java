@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class card( Colour colour, Type type, Int  val) {
+public class repertoir_card( Colour colour, Type type, Int  val) {
     
 
 
