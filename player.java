@@ -1,6 +1,6 @@
 
 import java.util.List;
-import java.util.*
+import java.util.*;
 import java.util.jar.Attributes;
 
 
@@ -41,15 +41,6 @@ public void showhand(){
 
 
 }
-
-public boolean winner{
-
-
-    
-}
-
-
-
 
 
 }
