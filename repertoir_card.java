@@ -2,49 +2,56 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class repertoir_card( Colour colour, Type type, Int  val) {
+public class repertoir_card {
+    private Colour colour;
+    private Type type;
+    private int number;
     
 
 
-private  List<Card> cartes = new List<Card>();
+private  List<Card> cartes = new ArrayList<Card>();
 
-
+ 
 public void initCard() {
     cartes = new ArrayList<>();
-    
+
+   
+
     // Regular cards 
     //enum colour
-    Colour[] colors = {Colour.red, Colour.blue, Colour.yellow, Colour.green, Colour.WILD};
-    
-    for (Colour c : colors ) {
-        if (c!= Color.WILD){
+    Colour[] colours = {Colour.red, Colour.blue, Colour.yellow, Colour.green, Colour.WILD};
+     Type[] types = {Type.number,Type.skip, Type.reverse, Type.plus2,Type.plus4,Type.chng};
+    for (Colour c : colours ) {
+        if (c!= Colour.WILD){
         for (int i = 0; i <= 9; i++) {
-         if (i=0){
-            cartes.add(new Card(c, Type.NUMBER, i));}
+         if (i==0){
+            cartes.add(new Card(c, Type.number, i));}
             else {
-            clone(cartes.add(new Card(c, Type.NUMBER, i))); // ou bien 2* jsp encore}
+            cartes.add(new Card(c, Type.number, i));
+            cartes.add(new Card(c, Type.number, i));
+                
         }
     }}
     
     // Not regular cards 
     //enum types
-    Type[] types = {Type.skip, Type.reverse, Type.plus2,Type.plus4,Type.chng};
+   
     
-    for (Color c : colors) {
+    for (Colour c : colors) {
 
-if (c !=WILD){
+if (c !=Colour.WILD){
         for (Type t : types) {
-            clone(cartes.add(new Card(c, t, -1)));
+            cartes.add(new Card(c, t, -1));
+             cartes.add(new Card(c, t, -1));
         }}
     }
     
     // Wild cards
     for (int i = 0; i < 4; i++) {
-        cartes.add(new Card(Color.WILD, Type.chng, -1));
-        cartes.add(new Card(Color.WILD, Type.plus4, -1));
+        cartes.add(new Card(Colour.WILD, Type.chng, -1));
+        cartes.add(new Card(Colour.WILD, Type.plus4, -1));
     }
 }
-
 
 public List<Card>getcartes()
 {
@@ -52,15 +59,8 @@ public List<Card>getcartes()
 }
 
 
-
-
-
-
-
-
-
-
-
+    
+}
 }
 
 
