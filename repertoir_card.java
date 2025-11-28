@@ -9,8 +9,11 @@ public class repertoir_card {
     
 
 
-private  List<Card> cartes = new ArrayList<Card>();
+private  List<card> cartes = new ArrayList<card>();
+public repertoir_card() {
+    initCard();
 
+}
  
 public void initCard() {
     cartes = new ArrayList<>();
@@ -25,10 +28,10 @@ public void initCard() {
         if (c!= Colour.WILD){
         for (int i = 0; i <= 9; i++) {
          if (i==0){
-            cartes.add(new Card(c, Type.number, i));}
+            cartes.add(new card(c, Type.number, i));}
             else {
-            cartes.add(new Card(c, Type.number, i));
-            cartes.add(new Card(c, Type.number, i));
+            cartes.add(new card(c, Type.number, i));
+            cartes.add(new card(c, Type.number, i));
                 
         }
     }}
@@ -41,15 +44,15 @@ public void initCard() {
 
 if (c !=Colour.WILD){
         for (Type t : types) {
-            cartes.add(new Card(c, t, -1));
-             cartes.add(new Card(c, t, -1));
+            cartes.add(new card(c, t, -1));
+             cartes.add(new card(c, t, -1));
         }}
     }
     
     // Wild cards
     for (int i = 0; i < 4; i++) {
-        cartes.add(new Card(Colour.WILD, Type.chng, -1));
-        cartes.add(new Card(Colour.WILD, Type.plus4, -1));
+        cartes.add(new card(Colour.WILD, Type.chng, -1));
+        cartes.add(new card(Colour.WILD, Type.plus4, -1));
     }
 }
 

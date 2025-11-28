@@ -5,8 +5,8 @@ import java.util.Collections;
 
 
 public class shuffle {
- private Card temp;
-    public void shuffledeck(List<Card> deck){
+ private card temp;
+    public void shuffledeck(List<card> deck){
        
 for (int i=107;i>0;i--){
     int j = (int) (Math.random() * i);

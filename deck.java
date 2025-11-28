@@ -9,11 +9,11 @@ import java.util.Stack;
 
 public class  Deck {
   private repertoir_card repertoir;
-private Stack<Card> drawpile;
-private Stack<Card> discardpile;
-private Card card;
-private Card top;
-private List<Card> deck;
+private Stack<card> drawpile;
+private Stack<card> discardpile;
+private card carte;
+private card top;
+private List<card> deck;
 
 
 
@@ -23,6 +23,8 @@ public Deck() {
     drawpile = new Stack<>();
     discardpile = new Stack<>();
     deck = new ArrayList<>();
+    drawplus();
+    Sauvegarde();
 
 }
 
@@ -36,14 +38,28 @@ public Deck  DRAW(){
    deck = repertoir.getcartes();
   shuffle(deck);
   initStack(drawpile);
-  for (Card card : deck)
+  for (card carte : deck)
   {
-  drawpile.push(card);
+  drawpile.push(carte);
   // hna lzm nzid } bsh mhbch y9blholi
      return this;
 }
-  
+ 
 }
+ public void  drawplus(int n){//n c le nmbr de cartes a piocher
+  for (int i=0;i<n;i++){
+    Stack<card> Hand.push(drawpile.pop());
+    // ajouter carte a la main du joueur
+  }
+
+ }
+
+
+
+
+
+
+
 //creer pile discard
 public Deck  DISCARD(){
   // faut prendre en compte que card = sizeof drawpile- n*7
@@ -60,14 +76,15 @@ public void refile(){
   if (drawpile.isEmpty() ){
     Sauvegarde(discardpile);
     while (!discardpile.isEmpty()){
-      discardpile.pop(card);
-drawpile.push(card);}
-  }
+      discardpile.pop(carte);
+drawpile.push(carte);}
+
+  }discardpile.push(top);// remettre le top dans discard pile pour continuer le jeu 
 }
 
 
 
-public void Sauvegarde(Stack<Card> discardpile)
+public void Sauvegarde(Stack<card> discardpile)
 {  this.top=TopStack(discardpile);
 }
 
