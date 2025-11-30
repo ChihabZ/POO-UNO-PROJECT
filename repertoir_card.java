@@ -41,9 +41,9 @@ public void initCard() {
    
     
     for (Colour c : colors) {
-
-if (c !=Colour.WILD){
-        for (Type t : types) {
+       for (Type t : types) {
+if (c !=Colour.WILD && t !=Type.number){
+        
             cartes.add(new card(c, t, -1));
              cartes.add(new card(c, t, -1));
         }}
