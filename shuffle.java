@@ -6,9 +6,9 @@ import java.util.Collections;
 
 public class shuffle {
  private card temp;
-    public void shuffledeck(List<card> deck){
+    public void shuffledeck(List<card> deck){Collections.shuffle(deck);
        
-for (int i=107;i>0;i--){
+for (int i=deck.size();i>0;i--){
     int j = (int) (Math.random() * i);
     temp= deck.get(i);
     deck.set(i, deck.get(j));
