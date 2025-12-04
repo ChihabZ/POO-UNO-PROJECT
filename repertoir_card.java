@@ -13,8 +13,10 @@ private  List<card> cartes = new ArrayList<card>();
 public repertoir_card() {
     initCard();
 
-}
+}//-----------------------------------------------------
  
+
+
 public void initCard() {
     cartes = new ArrayList<>();
 
@@ -23,7 +25,7 @@ public void initCard() {
     // Regular cards 
     //enum colour
     Colour[] colours = {Colour.red, Colour.blue, Colour.yellow, Colour.green, Colour.WILD};
-     Type[] types = {Type.number,Type.skip, Type.reverse, Type.plus2,Type.wild_4_plus,Type.wild};
+    Type[] types = {Type.number,Type.skip, Type.reverse, Type.plus2,Type.wild_4_plus,Type.wild};
     for (Colour c : colours ) {
         if (c!= Colour.WILD){
         for (int i = 0; i <= 9; i++) {
@@ -55,8 +57,9 @@ if (c !=Colour.WILD && t !=Type.number){
         cartes.add(new card(Colour.WILD, Type.wild_4_plus, -1));
     }
 }
+//======================================================
 
-public List<Card>getcartes()
+public List<card>getcartes()
 {
     return cartes;
 }

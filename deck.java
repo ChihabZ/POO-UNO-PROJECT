@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-import javax.smartcardio.Card;
+import java.util.Collections;
 
 
 
@@ -27,6 +27,7 @@ public Deck() {
     deck = new ArrayList<>();
     drawplus();
     Sauvegarde();
+    initDISCARD();
 
 }
 
@@ -36,7 +37,6 @@ public Deck() {
 // crrer pile draw 
 public Deck  initDeck(){
   
-   repertoir.initCard();
    deck = repertoir.getcartes();
   shuffle(deck);
   initStack(drawpile);
@@ -58,10 +58,10 @@ public Deck  initDeck(){
 
 
 //creer pile discard
-public Deck  DISCARD(){
+public Deck  initDISCARD(){
   // faut prendre en compte que card = sizeof drawpile- n*7
 initStack(discardpile);
-discardpile.push(drawpile.pop());
+//discardpile.push(drawpile.pop());
 return this;// retourne le stack
 }
 
