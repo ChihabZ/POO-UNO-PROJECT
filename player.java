@@ -2,13 +2,13 @@
 import java.util.*;
 import java.util.jar.Attributes;
 
-import javax.smartcardio.Card;
+
 
 //donc hna tbda la classe player
-public class player {
-
+public class player{
+private card = new card();
 private String name;
-private List<Card> hand;
+private List<card> hand;
 private Scanner scan = new Scanner(System.in);
 private deck = new Deck();
 
@@ -26,7 +26,7 @@ this.hand = new ArrayList<>();
 public void draw(int n){
 
     card c = deck.drawplus(n);
-    hand.add(c);
+    hand.add(c); 
 
 }
 
@@ -47,8 +47,8 @@ draw(1);
 
 }else{
 
-index--;// for machine array
-
+index--;// for machine array for that it starts from 0,im making it user friendly
+//the draw method()
 if(index < 0 || index >= hand.size()){
 
 System.out.println("invalid");
@@ -65,23 +65,18 @@ return;
 }else{
     deck.discadpile.add(c);
     hand.remove(index);
-    System.out.println(name + " played " + c);
+    System.out.println(name + " played " + c); 
+  }
+ }
 }
-
-}
-
-
-
-}
-
-
-
-
-
-
-
-//and from here nroho to the main(),
+ 
+//and from here nroho to the main() and gameManagement 
 //not sure if all classes are here so ill be working au fur et a mesure
-}
+}// end showcards
+
+
+
+
+} 
 
 
