@@ -25,31 +25,33 @@ public void initCard() {
     // Regular cards 
     //enum colour
     Colour[] colours = {Colour.red, Colour.blue, Colour.yellow, Colour.green, Colour.WILD};
-    Type[] types = {Type.regular.val,Type.skip, Type.reverse, Type.plus2,Type.wild_4_plus,Type.wild};
+    Type[] types = {Type.regular,Type.skip, Type.reverse, Type.plus2,Type.wild_4_plus,Type.wild};
     for (Colour c : colours ) {
         if (c!= Colour.WILD){
-        for (int i = 0; i <= 9; i++) {
-         if (i==0){
-            cartes.add(new card(c, Type.regular.val,i));}
-            else {
-            cartes.add(new card(c, Type.regular.val, i));
-            cartes.add(new card(c, Type.regular.val, i));
+          for (int i = 0; i <= 9; i++) {
+              if (i==0){
+            cartes.add(new card(c, Type.regular,i));
+             } else {
+            cartes.add(new card(c, Type.regular, i));
+            cartes.add(new card(c, Type.regular, i));
                 
-        }
-    }}
-    
+               }
+            }
+           }
+          }
     // Not regular cards 
     //enum types
    
     
-    for (Colour c : colors) {
+    for (Colour c : colours) {
        for (Type t : types) {
-if (c !=Colour.WILD && t !=Type.regular){
+          if (c !=Colour.WILD && t !=Type.regular){
         
             cartes.add(new card(c, t, -1));
              cartes.add(new card(c, t, -1));
-        }}
-    }
+           }
+         }
+     }
     
     // Wild cards
     for (int i = 0; i < 4; i++) {
@@ -64,8 +66,8 @@ public List<card>getcartes()
     return cartes;
 }
 
-    
-}
-}
+}  
+
+
 
 
