@@ -25,15 +25,15 @@ public void initCard() {
     // Regular cards 
     //enum colour
     Colour[] colours = {Colour.red, Colour.blue, Colour.yellow, Colour.green, Colour.WILD};
-    Type[] types = {Type.number,Type.skip, Type.reverse, Type.plus2,Type.wild_4_plus,Type.wild};
+    Type[] types = {Type.regular.val,Type.skip, Type.reverse, Type.plus2,Type.wild_4_plus,Type.wild};
     for (Colour c : colours ) {
         if (c!= Colour.WILD){
         for (int i = 0; i <= 9; i++) {
          if (i==0){
-            cartes.add(new card(c, Type.number, i));}
+            cartes.add(new card(c, Type.regular.val,i));}
             else {
-            cartes.add(new card(c, Type.number, i));
-            cartes.add(new card(c, Type.number, i));
+            cartes.add(new card(c, Type.regular.val, i));
+            cartes.add(new card(c, Type.regular.val, i));
                 
         }
     }}
@@ -44,7 +44,7 @@ public void initCard() {
     
     for (Colour c : colors) {
        for (Type t : types) {
-if (c !=Colour.WILD && t !=Type.number){
+if (c !=Colour.WILD && t !=Type.regular){
         
             cartes.add(new card(c, t, -1));
              cartes.add(new card(c, t, -1));
