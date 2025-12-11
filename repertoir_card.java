@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class repertoir_card {
+public class repertoir_card   {
     private Colour colour;
     private Type type;
     private int number;
@@ -63,7 +63,6 @@ public List<card>getcartes()
 {
     return cartes;
 }
-
 
     
 }
