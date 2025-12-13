@@ -32,14 +32,17 @@ public void draw(int n){
 
 
 public void showcards(Deck deck){
+    
+card paintcard; //for the drawable card
 
 System.out.println("\n" + name + " hand :");
+paintcard = hand.get(0);
 for(int i = 0 ; i < hand.size() ; i++){
 
-System.out.println((i+1) + ": " + hand.get(i));
+System.out.print((i+1) + " " + logo(paintcard) + "  " );
 
 }
-System.out.println("choose a card to play, or press 0 to draw");
+System.out.println(" \n choose a card to play, or press 0 to draw");//writing under the painted cards
 int index = scan.nextInt();
 if(index == 0){
 
