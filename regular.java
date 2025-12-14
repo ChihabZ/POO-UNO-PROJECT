@@ -28,7 +28,7 @@ public class regular extends card  {
 	    	return false ;
 	    	}
 	}
-	public String toString() {
+	/*public String toString() {
         return color + " " + num;
-    }
+    }*/
 }
