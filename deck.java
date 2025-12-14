@@ -27,12 +27,8 @@ public Deck() {
     drawpile = new Stack<>();
     discardpile = new Stack<>();
     deck = new ArrayList<>();
-    drawplus();
-    Sauvegarde();
+    drawplus(int n,Stack<card> Hand);
     initDISCARD();
-
-}
-
 
 
 
@@ -41,14 +37,15 @@ public Deck  initDeck(){
   
    deck = repertoir.getcartes();
    Collections.shuffle(deck);
-  drawpile = new Stack<card>();
+ 
   for (card carte : deck)
   {
-  drawpile.push(carte);}
+  drawpile.push(carte);
+}
  
      return this;
 }
-}
+
 
  public void  drawplus(int n,Stack<card> Hand){//n c le nmbr de cartes a piocher
   for (int i=0;i<n;i++){
@@ -66,7 +63,7 @@ public Deck  initDeck(){
 //creer pile discard
 public Deck  initDISCARD(){
   // faut prendre en compte que card = sizeof drawpile- n*7
-discardpile = new Stack<card>();
+  discardpile = new Stack<card>();
 //discardpile.push(drawpile.pop());
 return this;
 // retourne le stack
@@ -86,18 +83,17 @@ public void refile(){
             }
 
     Collections.shuffle(deck);
-    drawpile = new Stack<card>();// reinitialiser la pile draw 
 
         for(card carte:deck){
       drawpile.push(carte);
        }
-    discardpile.push(Sauvegarde);
+  
 }
 discardpile.push(top);// remettre le top dans discard pile pour continuer le jeu 
 }
   
-
-
+}
+}
 
 
 
