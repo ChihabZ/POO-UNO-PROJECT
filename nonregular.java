@@ -35,8 +35,8 @@ public class nonregular extends card  {
     	}
 		return false;
 	}
-	public String toString() {
+	/*public String toString() {
         return color + " " + type;
-    }
+    }*/
 	
 }
