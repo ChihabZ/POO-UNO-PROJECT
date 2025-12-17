@@ -27,7 +27,7 @@ public Deck() {
     drawpile = new Stack<>();
     discardpile = new Stack<>();
     deck = new ArrayList<>();
-    drawplus(int n,Stack<card> Hand);
+    drawplus (n,Stack<card> Hand);
     initDISCARD();
 
 
