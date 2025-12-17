@@ -1,5 +1,5 @@
 package unoProject;
 
 public enum type {
-	 plus2 ,revers, skip, wild, wild_4_plus 
+	 PLUS2 ,REVERSE, SKIP, wild, wild_4_plus 
 }
