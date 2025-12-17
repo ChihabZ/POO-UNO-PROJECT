@@ -1,6 +1,6 @@
 package unoProject;
 
-public abstract class card {
+public abstract class card  {
 	private color  color;
 
     public card (color color) {
@@ -11,4 +11,5 @@ public abstract class card {
         return color;
     }
     public abstract boolean allowplay (card topcard);
+   
 }
