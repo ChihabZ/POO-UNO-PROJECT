@@ -43,6 +43,9 @@ public class nonregular extends card implements drawable  {
 	/*public String toString() {
         return color + " " + type;
     }*/
+
+
+	//shyraazzzz
 	public void logo(card card){
 String RED = "\u001B[31m";
 String GREEN = "\u001B[32m";
