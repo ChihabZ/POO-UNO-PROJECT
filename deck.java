@@ -8,36 +8,35 @@ public class  deck {
  private repertoir_card repertoir;
 private Stack<card> drawpile;
 private Stack<card> discardpile;
-private card carte;
 private card top;
-private List<card> deck;
 
 
 
 
 
-public Deck() {
+
+public deck() {
     repertoir = new repertoir_card();
     drawpile = new Stack<>();
     discardpile = new Stack<>();
-    deck = new ArrayList<>();
-    initDeck();
-    initDISCARD();
+    drawpile = initDeck();
+    discardpile = initDISCARD();
 
-
+}
 
 // crrer pile draw 
-Stack<card> initDeck(){
-  
-   deck = repertoir.getcartes();
-   Collections.shuffle(deck);
+public Stack<card> initDeck(){
+   List<card> Deck = new ArrayList<card>();
+  Stack<card> pile = new Stack<>();
+   Deck = repertoir.initCard();
+   Collections.shuffle(Deck);
  
-  for (card carte : deck)
+  for (card cd : Deck)
   {
-  drawpile.push(carte);
+  pile.push(cd);
 }
  
-     return this;
+     return pile;
 }
 
 
@@ -55,11 +54,12 @@ Stack<card> initDeck(){
 
 
 //creer pile discard
-public Deck  initDISCARD(){
+public Stack<card> initDISCARD(){
   // faut prendre en compte que card = sizeof drawpile- n*7
-  discardpile = new Stack<card>();
+  
+  Stack<card> pile = new Stack<card>();
 //discardpile.push(drawpile.pop());
-return this;
+return pile;
 // retourne le stack
 }
 
@@ -70,13 +70,13 @@ return this;
 public void refile(){
   if (drawpile.isEmpty() ){
        top=discardpile.pop();// sauvegarder la carte du dessus de discard pile
-       List<card> deck =new ArrayList<Card>();
+       List<card> deck =new ArrayList<card>();
 
         while (!discardpile.isEmpty()){// vider la discard pile
           deck.add(discardpile.pop());
             }
 
-    Collections.shuffle(deck);
+    Collections.shuffle(deck);// melanger les cartes
 
         for(card carte:deck){
       drawpile.push(carte);
@@ -87,7 +87,7 @@ discardpile.push(top);// remettre le top dans discard pile pour continuer le jeu
 }
   
 }
-}
+
 
 
 
