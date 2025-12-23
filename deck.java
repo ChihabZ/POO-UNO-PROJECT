@@ -4,13 +4,7 @@ import java.util.Stack;
 import java.util.Collections;
 
 
-
-
-
-
-
-
-public class  Deck {
+public class  deck {
  private repertoir_card repertoir;
 private Stack<card> drawpile;
 private Stack<card> discardpile;
@@ -27,13 +21,13 @@ public Deck() {
     drawpile = new Stack<>();
     discardpile = new Stack<>();
     deck = new ArrayList<>();
-    drawplus (n,Stack<card> Hand);
+    initDeck();
     initDISCARD();
 
 
 
 // crrer pile draw 
-public Deck  initDeck(){
+Stack<card> initDeck(){
   
    deck = repertoir.getcartes();
    Collections.shuffle(deck);

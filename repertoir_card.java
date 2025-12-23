@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 
 public class repertoir_card   {
-    private Colour colour;
-    private Type type;
+    private color colour;
+    private type type;
     private int number;
     
 
@@ -17,23 +18,23 @@ public repertoir_card() {
  
 
 
-public void initCard() {
+public ArrayList<card> initCard() {
     cartes = new ArrayList<>();
 
    
 
     // Regular cards 
     //enum colour
-    Colour[] colours = {Colour.red, Colour.blue, Colour.yellow, Colour.green, Colour.WILD};
-    Type[] types = {Type.regular,Type.skip, Type.reverse, Type.plus2,Type.wild_4_plus,Type.wild};
-    for (Colour c : colours ) {
-        if (c!= Colour.WILD){
+    color[] colours = {color.red, color.blue, color.yellow, color.green, color.WILD};
+    type[] types = {type.REVERSE,type.SKIP, type.PLUS2,type.wild_4_plus,type.wild};
+    for (colour c : colour ) {
+        if (c!= color.WILD){
           for (int i = 0; i <= 9; i++) {
               if (i==0){
-            cartes.add(new card(c, Type.regular,i));
+            cartes.add(new regular(c,i));
              } else {
-            cartes.add(new card(c, Type.regular, i));
-            cartes.add(new card(c, Type.regular, i));
+            cartes.add(new regular(c, i));
+            cartes.add(new regular(c, i));
                 
                }
             }
@@ -43,21 +44,22 @@ public void initCard() {
     //enum types
    
     
-    for (Colour c : colours) {
-       for (Type t : types) {
-          if (c !=Colour.WILD && t !=Type.regular){
+    for (color c : colours) {
+       for (type t : types) {
+          if (c !=color.WILD && t !=type.regular){
         
-            cartes.add(new card(c, t, -1));
-             cartes.add(new card(c, t, -1));
+            cartes.add(new nonregular(c, t));
+             cartes.add(new nonregular(c, t));
            }
          }
      }
     
     // Wild cards
     for (int i = 0; i < 4; i++) {
-        cartes.add(new card(Colour.WILD, Type.wild, -1));
-        cartes.add(new card(Colour.WILD, Type.wild_4_plus, -1));
+        cartes.add(new nonregular(color.WILD, type.wild, -1));
+        cartes.add(new nonregular(color.WILD, type.wild_4_plus, -1));
     }
+    return (ArrayList<card>) cartes;
 }
 //======================================================
 
