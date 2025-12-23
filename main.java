@@ -47,14 +47,7 @@ public static void displaybackofcard(){
             GameManagement multiplayerGame = new GameManagement();
             multiplayerGame.startGame();
             break;
-            case 2:
-            SinglePlayerGame singlePlayerGame = new SinglePlayerGame();
-            singlePlayerGame.startSingleGame();
-            break;
-            default:
-            System.out.println("invalid choice.");
-            return;
-
+            
     }
 //im gonna create a single player mode.
 

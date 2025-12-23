@@ -1,7 +1,7 @@
 
 
 public abstract class card  {
-	private color  color;
+	private final color  color;
 
     public card (color color) {
         this.color = color;

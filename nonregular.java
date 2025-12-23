@@ -34,7 +34,7 @@ public class nonregular extends card implements drawable  {
     	}
     	//they have the same symbol 
     	if(this instanceof nonregular && topcard instanceof nonregular) {
-    		if(this.gettype()==topcard.gettype()) {
+    		if(this.gettype()==((nonregular) topcard).gettype()) {
     			return true ;
     		}
         return false;
@@ -63,7 +63,7 @@ t[j][7]="|";
       }
 
 
-  switch(nonregular.gettype()){
+  switch(gettype()){
 
         case REVERSE:
         t[1][2]=" X ";t[1][3]=" X ";t[1][4]=" X ";t[1][5]=" X ";t[2][5]=" X ";t[3][4]=" X ";t[3][5]=" X ";t[3][6]=" X";t[4][5]=" X ";

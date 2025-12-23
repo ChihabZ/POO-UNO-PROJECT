@@ -1,10 +1,14 @@
 
 
+
+
+
 public class regular extends card implements drawable {
-       private final number number;
+       private final int number;
 	private String t[][];//SHYRAZ
 	
-	public regular(color color , number number) {
+	public regular(color color , int number) {
+    
 		super(color);
 		 t = new String [9][8];//SHYRAZ
 		this.number= number ;
@@ -12,9 +16,12 @@ public class regular extends card implements drawable {
 
 	}
 	
-	public number getnumber() {
-        return number;
+	public int getnumber() {
+
+        return this.number;
     }
+
+
 
 	@Override
 	public boolean allowplay(card topcard) {
@@ -22,14 +29,16 @@ public class regular extends card implements drawable {
 	    	if(this.getColor() ==topcard.getColor()) {
 	    		return true ; 
 	    	}
+        regular cardtop= (regular) topcard;
 	    	//they have the same number 
 	    	//we need to check if they are both regular
 	    	if(this instanceof regular && topcard instanceof regular) {
-	    		if(this.getnumber()== topcard.getnumber()) {
+	    		if(this.getnumber()== cardtop.getnumber()) {
 	    			return true ; 
 	    		}
 	    	return false ;
 	    	}
+        return false;
 	}
 	/*public String toString() {
         return color + " " + num;
@@ -37,6 +46,7 @@ public class regular extends card implements drawable {
 
 
 //SHYRAZZZZZ
+@Override
   public void logo(card card){
 String RED = "\u001B[31m";
 String GREEN = "\u001B[32m";
@@ -52,7 +62,11 @@ t[j][0]="|";
 t[j][7]="|";
       }
  //---------------------------------------------------------------------------
-        switch (card.getnumber()){
+       
+ 
+ 
+ 
+ switch (getnumber()){
             
             case 0:
            t[2][2]=" $ ";t[2][3]=" $ ";t[2][4]=" $ ";t[2][5]=" $ ";t[3][2]=" $ ";t[3][5]=" $ ";t[4][2]=" $ ";
@@ -107,10 +121,10 @@ t[j][7]="|";
             t[2][2]=" $ ";t[2][3]=" $ ";t[2][4]=" $ ";t[2][5]=" $ ";t[3][2]=" $ ";t[3][5]=" $ ";t[4][2]=" $ ";t[4][3]=" $";t[4][4]=" $ ";
             t[4][5]=" $ ";t[5][2]=" $ ";t[6][2]=" $ ";t[5][5]= "$ ";t[6][3]=" $ ";t[6][4]=" $ ";t[6][5]=" $ ";
             break;
-
+ }
   for(int i=0;i<9;i++){
           for(int j=0;j<8;j++){
-            switch(getColor()){
+            switch(card.getColor()){
               case red:
               System.out.print( RED + t[i][j]+ reset );
               break;
@@ -133,9 +147,14 @@ t[j][7]="|";
 
 
 
-        }//FIN DES CARTES NOMBRES ------------------------------------------------------------------
+        }
 
+  
+  //FIN DES CARTES NOMBRES ------------------------------------------------------------------
 
 }
+
   
-  }
+
+  
+  
