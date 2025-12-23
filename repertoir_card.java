@@ -26,8 +26,8 @@ public ArrayList<card> initCard() {
     // Regular cards 
     //enum colour
     color[] colours = {color.red, color.blue, color.yellow, color.green, color.WILD};
-    type[] types = {type.REVERSE,type.SKIP, type.PLUS2,type.wild_4_plus,type.wild};
-    for (colour c : colour ) {
+    type[] types = { type.REVERSE,type.SKIP, type.PLUS2,type.wild_4_plus,type.wild};
+    for (color c : colours ) {
         if (c!= color.WILD){
           for (int i = 0; i <= 9; i++) {
               if (i==0){
@@ -46,7 +46,7 @@ public ArrayList<card> initCard() {
     
     for (color c : colours) {
        for (type t : types) {
-          if (c !=color.WILD && t !=type.regular){
+          if (c !=color.WILD && t !=type.wild && t !=type.wild_4_plus) {
         
             cartes.add(new nonregular(c, t));
              cartes.add(new nonregular(c, t));
