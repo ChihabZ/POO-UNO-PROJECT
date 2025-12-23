@@ -1,4 +1,4 @@
-package unoProject;
+
 
 public class nonregular extends card implements drawable  {
 	private type type;

@@ -1,7 +1,7 @@
-package unoProject;
+
 
 public class regular extends card implements drawable {
-       private number number;
+       private final number number;
 	private String t[][];//SHYRAZ
 	
 	public regular(color color , number number) {

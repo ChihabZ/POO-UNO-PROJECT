@@ -1,4 +1,4 @@
-package unoProject;
+
 
 public abstract class card  {
 	private color  color;
