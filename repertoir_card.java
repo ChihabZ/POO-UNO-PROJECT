@@ -3,7 +3,7 @@ import java.util.List;
 
 
 public class repertoir_card   {
-    private colorr colour;
+    private color colour;
     private Type type;
     private int number;
     
@@ -24,7 +24,7 @@ public void initCard() {
 
     // Regular cards 
     //enum colour
-    Colour[] colours = {Colour.red, Colour.blue, Colour.yellow, Colour.green, Colour.WILD};
+    Color[] colours = {Color.red, Color.blue, Color.yellow, Color.green, Color.WILD};
     Type[] types = {Type.regular,Type.skip, Type.reverse, Type.plus2,Type.wild_4_plus,Type.wild};
     for (Colour c : colours ) {
         if (c!= Colour.WILD){
