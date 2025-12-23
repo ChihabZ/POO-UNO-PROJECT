@@ -5,14 +5,14 @@ public class nonregular extends card implements drawable  {
 	private String t[][]; //SHYRAZ
 
 
-	public nonregular(color color , type type) {
+	public nonregular(color color , type type ,int number ) {
 		super(color);
 		 t = new String [9][8];//SHYRAZ
 	
 
 		this.type = type ; 
 	}
-	public type gettype() {
+	public  type gettype() {
         return type;
     }
 	@Override
@@ -24,7 +24,7 @@ public class nonregular extends card implements drawable  {
 		//if it was a wild card (that mean it will be true )
     	if(this instanceof nonregular) {
     		//wild card
-    		if(this.gettype()==type.WILD ) {
+    		if(this.gettype()==type.wild ) {
     			return true ;
     		}
     		//wild +4
@@ -37,6 +37,7 @@ public class nonregular extends card implements drawable  {
     		if(this.gettype()==topcard.gettype()) {
     			return true ;
     		}
+        return false;
     	}
 		return false;
 	}
@@ -62,7 +63,7 @@ t[j][7]="|";
       }
 
 
-  switch(card.gettype()){
+  switch(nonregular.gettype()){
 
         case REVERSE:
         t[1][2]=" X ";t[1][3]=" X ";t[1][4]=" X ";t[1][5]=" X ";t[2][5]=" X ";t[3][4]=" X ";t[3][5]=" X ";t[3][6]=" X";t[4][5]=" X ";
@@ -101,7 +102,7 @@ case wild:
 //AFFICHAGE DES CARTES SUR LE TERMINAL---------------------------------------------------------------
   for(int i=0;i<9;i++){
           for(int j=0;j<8;j++){
-            switch(getcolor()){
+            switch(card.getColor()){
               case red:
               System.out.print( RED + t[i][j]+ reset );
               break;

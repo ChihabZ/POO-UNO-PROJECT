@@ -3,7 +3,7 @@ import java.util.List;
 
 
 public class repertoir_card   {
-    private Colour colour;
+    private colorr colour;
     private Type type;
     private int number;
     
