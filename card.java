@@ -1,7 +1,7 @@
 
 
 public abstract class card implements drawable {
-	private final color  color;
+	private color  color;
 
     public card (color color) {
         this.color = color;
@@ -9,6 +9,9 @@ public abstract class card implements drawable {
 
     public color  getColor() {
         return color;
+    }
+    public void setColor(color color) {
+        this.color = color;
     }
     public abstract boolean allowplay (card topcard);
    

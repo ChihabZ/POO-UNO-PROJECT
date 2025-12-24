@@ -12,8 +12,7 @@ public class repertoir_card   {
 
 private  List<card> cartes = new ArrayList<card>();
 public repertoir_card() {
-    initCard();
-
+    
 }//-----------------------------------------------------
  
 
@@ -61,12 +60,7 @@ public ArrayList<card> initCard() {
     }
     return (ArrayList<card>) cartes;
 }
-//======================================================
-    }
-// public List<card>getcartes()
-// {
-//     return cartes;
-// }
+}
 
 
 

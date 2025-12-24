@@ -12,7 +12,7 @@ public class regular extends card implements drawable {
 		super(color);
 		 t = new String [9][8];//SHYRAZ
 		this.number= number ;
-		
+		for(int i=0;i<9;i++) for(int j=0;j<8;j++) t[i][j] = "   ";
 
 	}
 	
@@ -29,10 +29,10 @@ public class regular extends card implements drawable {
 	    	if(this.getColor() ==topcard.getColor()) {
 	    		return true ; 
 	    	}
-        regular cardtop= (regular) topcard;
 	    	//they have the same number 
 	    	//we need to check if they are both regular
 	    	if(this instanceof regular && topcard instanceof regular) {
+	    		regular cardtop= (regular) topcard;
 	    		if(this.getnumber()== cardtop.getnumber()) {
 	    			return true ; 
 	    		}

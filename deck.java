@@ -83,19 +83,11 @@ public void refile(){
       drawpile.push(carte);
        }
   
+  discardpile.push(top);// remettre le top dans discard pile pour continuer le jeu 
 }
-discardpile.push(top);// remettre le top dans discard pile pour continuer le jeu 
 }
+
   
-
-public card getTopdisCard(){
-  return discardpile.peek();
-
-}
-
-public card getTopdrawCard(){
-  return drawpile.peek();
-}
 
 public card addtodiscard(card card){
   discardpile.push(card);
@@ -108,11 +100,10 @@ public card addtodiscard(card card){
 public void removefromdraw(card card){
   drawpile.pop();
 
+
 }
 
-
-
-
-
-
-
+public card getTopDiscard() {
+    return discardpile.peek();
+}
+}

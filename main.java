@@ -1,4 +1,5 @@
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class main {
      private static String[][] backofcard = new String[9][8];
@@ -36,21 +37,65 @@ public static void displaybackofcard(){
     
     public static void main(String[] args) {
 
-        
+     List<String> players = new ArrayList<>();
+
+
+
+
         //menu switch 
         System.out.println("Welcome to the UNO card game!");
         System.out.print("=====menu======: \n1.multiplayer\n2.singleplayer\nChoose an option: ");
-        Scanner scan = new Scanner(System.in);
-        int choice = scan.nextInt();
-        switch(choice){
+        
+        int option;
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        option = scanner.nextInt(); 
+        switch(option) {
             case 1:
-            GameManagement multiplayerGame = new GameManagement();
-            multiplayerGame.startGame();
-            break;
+                System.out.println("multiplayer mode selected.");
+            System.out.println("how many players ? ");
+            int numPlayers = scanner.nextInt();    
+            for (int i = 1; i <= numPlayers; i++) {
+                System.out.print("Enter name for Player " + i + ": ");
+                String playerName = scanner.next();
+                players.add(playerName);
+            }
+            gameManagement game = new gameManagement(players);
             
-    }
-//im gonna create a single player mode.
-
-    }
-
+            // n7ato la 1ere carte f discard pile
+            card firstCard = game.getDeck().drawplus(1);
+            game.getDeck().addtodiscard(firstCard);
+            System.out.println("First card on discard:");
+            firstCard.logo();
+            if (firstCard instanceof nonregular) {
+                nonregular nr = (nonregular) firstCard;
+                if (nr.gettype() == type.wild || nr.gettype() == type.wild_4_plus) {
+                    game.chooseWildColor(firstCard);
+                }
+            }
+            
+            // Game loop where players take turns w kda
+            while (!game.isGameOver()) {
+                player current = game.getCurrentPlayer();
+                System.out.println("\n--- " + current.getName() + "'s turn ---");
+                
+                // Show top discard
+                card topDiscard = game.getTopDiscard();
+                System.out.println("Top discard:");
+                topDiscard.logo();
+                
+                // hna on controle le tour pour chaque joueur
+                card playedCard = current.showcards(game.getDeck());
+                if (playedCard != null) {
+                    game.applyEffect(playedCard);
+                }
+                
+                game.nextPlayer();
+            }
+            
+            game.announceWinner();
+            break;
+        
+            
+}
+}// ya khawti rni khaletha, zdt bzaf 3fays hhhhhh mais mzal ma drt bot 
 }

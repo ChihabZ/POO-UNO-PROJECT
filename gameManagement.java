@@ -23,14 +23,12 @@ public class gameManagement {
     // Constructeur t3 les joueues w g3 wch ys79o
    
     public gameManagement(List<String> names) {
-       deck deck = new deck();
         players = new ArrayList<>();
-
         for (String n : names) {
             players.add(new player(n));
-        }
-
-        initialDeal();                 // distribuer 7 cartes q chaque player
+        }        deck = new deck();
+        initialDeal();
+                         // distribuer 7 cartes q chaque player
                        // first card after initializing goes to the table, a part +4 ofc
     }
 
@@ -67,22 +65,27 @@ public class gameManagement {
    
    
     // the effect ta3na sma ya effet 3la le prochain ya effet ela jeu g3
-    private void applyEffect(card card) {
+    public void applyEffect(card card) {
+        if (!(card instanceof nonregular)) {
+            return; // Regular cards have no effect
+        }
+        nonregular nr = (nonregular) card;
 
-       if(card.gettype() == card.Type.SKIP){
+       if(nr.gettype() == type.SKIP){
 
            nextPlayer();
-         }else if(card.gettype() == card.type.revers){
+         }else if(nr.gettype() == type.REVERSE){
               direction *= -1;
-            }else if(this.gettype()==card.type.plus2){
+            }else if(nr.gettype()==type.PLUS2){
               nextPlayer();
               getCurrentPlayer().draw(2);
-            }else if(card.gettype()==card.type.wild_4_plus){
+            }else if(nr.gettype()==type.wild_4_plus){
               nextPlayer();
               getCurrentPlayer().draw(4);
               chooseWildColor(card);
-            }else if(card.gettype() == card.type.wild){
-              chooseWildColor(card); 
+            }else if(nr.gettype() == type.wild){
+              chooseWildColor(card);
+               
             } 
     
      }
@@ -90,33 +93,33 @@ public class gameManagement {
 
    
     // choix de couleur pour wild+4
-    private void chooseWildColor(card card) {
+    public void chooseWildColor(card card) {
        
     System.out.println("choose a color: 1.RED 2.BLUE 3.GREEN 4.YELLOW");
     int choice = scan.nextInt();
     switch(choice){
         case 1:
-        card.setColor(card.Color.red);
+        card.setColor(color.red);
         break;
         case 2:
-        card.setColor(card.Color.blue);
+        card.setColor(color.blue);
         break;
         case 3:
-        card.setColor(card.Color.green);
+        card.setColor(color.green);
         break;
         case 4:
-        card.setColor(card.Color.yellow);
+        card.setColor(color.yellow);
         break;
         default:
-        System.out.println("invalid choice, color set to REDv by default");
-        card.setColor(card.Color.red);
+        System.out.println("invalid choice, color set to RED by default");
+        card.setColor(color.red);
         break;
        
     }// end switch
     }// end choose wild color
 
 
-    private void nextPlayer() {
+    public void nextPlayer() {
         current = (current + direction + players.size()) % players.size();
 
 
@@ -125,23 +128,21 @@ public class gameManagement {
     }// end next player
 
    
-    public Player getCurrentPlayer() { 
-        return players.get(current); 
-
-       
+    public player getCurrentPlayer() {
+        return players.get(current);
     }// end get current player
 
 
-    public deck getTopDiscard() { 
-        return deck.discadpile.get(deck.discadpile.size() - 1);
+    public card getTopDiscard() { 
+        return deck.getTopDiscard();
        
 
     }// end get top discard
 
 
     public boolean isGameOver() { 
-        for (Player p : players) {
-            if (p.hand.isEmpty()) {
+        for (player p : players) {
+            if (p.hasEmptyHand()) {
                 return true;
             }
         }
@@ -158,8 +159,8 @@ public class gameManagement {
 
 
     public void announceWinner() { 
-        for (Player p : players) {
-            if (p.hand.isEmpty()) {
+        for (player p : players) {
+            if (p.hasEmptyHand()) {
                 System.out.println("The winner is " + p.getName() + "!");
                 return;
             }
@@ -169,8 +170,9 @@ public class gameManagement {
 
     }//end announce winner
 
-
-
+    public deck getDeck() {
+        return deck;
+    }
 }
 
 

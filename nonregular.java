@@ -8,7 +8,7 @@ public class nonregular extends card implements drawable  {
 	public nonregular(color color , type type ,int number ) {
 		super(color);
 		 t = new String [9][8];//SHYRAZ
-	
+		for(int i=0;i<9;i++) for(int j=0;j<8;j++) t[i][j] = "   ";
 
 		this.type = type ; 
 	}
