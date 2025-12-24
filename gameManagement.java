@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class GameManagement {
+public class gameManagement {
 
     private final List<player> players;
-    private  Deck deck;
+    private  deck deck;
     private int direction = 1;   
     private int current = 0;     
     private Scanner scan = new Scanner(System.in);
@@ -22,16 +22,16 @@ public class GameManagement {
     
     // Constructeur t3 les joueues w g3 wch ys79o
    
-    public GameManagement(List<String> names) {
-        deck = new Deck();
+    public gameManagement(List<String> names) {
+       deck deck = new deck();
         players = new ArrayList<>();
 
         for (String n : names) {
-            players.add(new Player(n));
+            players.add(new player(n));
         }
 
         initialDeal();                 // distribuer 7 cartes q chaque player
-        flipFirstCard();               // first card after initializing goes to the table, a part +4 ofc
+                       // first card after initializing goes to the table, a part +4 ofc
     }
 
     // voila le methode de distribution elewla g3
@@ -51,7 +51,7 @@ public class GameManagement {
  
        for (int i = 0; i < 7; i++) {
     
-    players(index).hand.add(deck.discadpile.remove(0));
+    players.get(index).draw(1);
 
        }
        }
@@ -59,11 +59,7 @@ public class GameManagement {
 
 
   
-     private void flipFirstCard() {
-        
-      deck.discardpile.add(deck.drawdpile.remove(0));
-
-     }
+     
 
         
 
@@ -73,7 +69,7 @@ public class GameManagement {
     // the effect ta3na sma ya effet 3la le prochain ya effet ela jeu g3
     private void applyEffect(card card) {
 
-       if(card.getType() == card.Type.SKIP){
+       if(card.gettype() == card.Type.SKIP){
 
            nextPlayer();
          }else if(card.gettype() == card.type.revers){

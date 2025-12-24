@@ -1,6 +1,6 @@
 
 
-public abstract class card  {
+public abstract class card implements drawable {
 	private final color  color;
 
     public card (color color) {

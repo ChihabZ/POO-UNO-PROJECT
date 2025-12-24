@@ -47,7 +47,8 @@ public class nonregular extends card implements drawable  {
 
 
 	//shyraazzzz
-	public void logo(card card){
+  @Override
+	public void logo(){
 String RED = "\u001B[31m";
 String GREEN = "\u001B[32m";
 String YELLOW = "\u001B[33m";
@@ -102,7 +103,7 @@ case wild:
 //AFFICHAGE DES CARTES SUR LE TERMINAL---------------------------------------------------------------
   for(int i=0;i<9;i++){
           for(int j=0;j<8;j++){
-            switch(card.getColor()){
+            switch(getColor()){
               case red:
               System.out.print( RED + t[i][j]+ reset );
               break;
@@ -145,8 +146,8 @@ case wild:
 
           }
           
-  }}
-
+  }
+}
 
     }
    

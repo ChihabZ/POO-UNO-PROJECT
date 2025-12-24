@@ -47,7 +47,7 @@ public class regular extends card implements drawable {
 
 //SHYRAZZZZZ
 @Override
-  public void logo(card card){
+  public void logo(){
 String RED = "\u001B[31m";
 String GREEN = "\u001B[32m";
 String YELLOW = "\u001B[33m";
@@ -124,7 +124,7 @@ t[j][7]="|";
  }
   for(int i=0;i<9;i++){
           for(int j=0;j<8;j++){
-            switch(card.getColor()){
+            switch(getColor()){
               case red:
               System.out.print( RED + t[i][j]+ reset );
               break;

@@ -40,15 +40,16 @@ public Stack<card> initDeck(){
 }
 
 
- public void  drawplus(int n,Stack<card> Hand){//n c le nmbr de cartes a piocher
+ public card  drawplus(int n){//n c le nmbr de cartes a piocher
   for (int i=0;i<n;i++){
         if (drawpile.isEmpty()) {
        refile();
          }
          
-    Hand.push(drawpile.pop());
+    return(drawpile.pop());
     // ajouter carte a la main du joueur
   }
+  return null;
 
  }
 
@@ -86,6 +87,27 @@ public void refile(){
 discardpile.push(top);// remettre le top dans discard pile pour continuer le jeu 
 }
   
+
+public card getTopdisCard(){
+  return discardpile.peek();
+
+}
+
+public card getTopdrawCard(){
+  return drawpile.peek();
+}
+
+public card addtodiscard(card card){
+  discardpile.push(card);
+  return card;
+
+
+
+}
+
+public void removefromdraw(card card){
+  drawpile.pop();
+
 }
 
 

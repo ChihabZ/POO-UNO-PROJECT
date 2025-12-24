@@ -1,16 +1,15 @@
 
 import java.util.*;
-import java.util.jar.Attributes;
 
 
 
 //donc hna tbda la classe player
 public class player{
-private card = new card();
+private card card;
 private String name;
 private List<card> hand;
 private Scanner scan = new Scanner(System.in);
-private deck = new Deck();
+private deck   deck = new deck();
 
 //constructeur
 public player(String name){
@@ -26,12 +25,18 @@ this.hand = new ArrayList<>();
 public void draw(int n){
 
     card c = deck.drawplus(n);
-    hand.add(c); 
+    hand.add(c);
 
 }
 
 
-public void showcards(Deck deck){
+
+
+
+
+// show cards and plat turn method
+
+public void showcards(deck deck){
     
 card paintcard; //for the drawable card
 
@@ -39,7 +44,8 @@ System.out.println("\n" + name + " hand :");
 paintcard = hand.get(0);
 for(int i = 0 ; i < hand.size() ; i++){
 
-System.out.print((i+1) + " " + logo(paintcard) + "  " );
+System.out.print((i+1) + " ");
+ paintcard.logo();
 
 }
 System.out.println(" \n choose a card to play, or press 0 to draw");//writing under the painted cards
@@ -60,13 +66,14 @@ return;
 }else{
 card c = hand.get(index);
 
-if(!c.allowplay(deck.discadpile(0))){
+if(!c.allowplay(deck.getTopdisCard())){
 
 System.out.println("you cant play this card");
 return;
 
 }else{
-    deck.discadpile.add(c);
+
+    deck.addtodiscard(c);
     hand.remove(index);
     System.out.println(name + " played " + c); 
   }

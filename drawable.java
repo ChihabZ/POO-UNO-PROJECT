@@ -1,5 +1,5 @@
 interface drawable {
 
 
-    public void logo (card card);
+    public void logo ();
 }
