@@ -139,7 +139,7 @@ t[j][7]="|";
               break;
                default:break;
                }
-
+System.out.println();
 		  }
 		}
 

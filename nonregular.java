@@ -123,18 +123,21 @@ case wild:
                  System.out.print( GREEN +t[i][j] + reset);
                   System.out.print( GREEN +t[i][j] + reset);
                    System.out.print( GREEN +t[i][j] + reset);
+                  // System.out.print("/n");
                     System.out.print( RED +t[i][j] + reset);
                      System.out.print( RED +t[i][j] + reset);
                       System.out.print( RED+t[i][j] + reset);
                        System.out.print( GREEN+t[i][j] + reset);
                         System.out.print( GREEN +t[i][j] + reset);
                          System.out.print( GREEN+t[i][j] + reset);
+                       //  System.out.print("/n");
                           System.out.print( BLUE +t[i][j] + reset);
                            System.out.print( BLUE+t[i][j]  + reset);
                             System.out.print( BLUE+t[i][j]  + reset);
                              System.out.print( YELLOW+t[i][j] + reset);
                               System.out.print( YELLOW+t[i][j]  + reset);
                                System.out.print( YELLOW+t[i][j]  + reset);
+                             //  System.out.print("/n");
                                 System.out.print( BLUE+t[i][j]  + reset);
                                  System.out.print( BLUE+t[i][j] + reset);
                                   System.out.print( BLUE+t[i][j]  + reset);
@@ -145,7 +148,7 @@ case wild:
               break;  
 
           }
-          
+System.out.println();     
   }
 }
 
