@@ -7,8 +7,8 @@ public class main {
 static {
     // Haut et bas
     for (int i = 0; i < 8; i++) {
-        backofcard[0][i] = "-";
-        backofcard[8][i] = "-";
+        backofcard[0][i] = " - ";
+        backofcard[8][i] = " - ";
     }
 
     // Côtés

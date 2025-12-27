@@ -38,16 +38,40 @@ public void draw(int n){
 
 // show cards and plat turn method
 
-public card showcards(deck deck){
+ public card showcards(deck deck){
     
-card paintcard; //for the drawable card
+ card paintcard; //for the drawable card
 
-System.out.println("\n" + name + " hand :");
-for(int i = 0 ; i < hand.size() ; i++){
-    System.out.println((i+1) + ":");
-    paintcard = hand.get(i);
-    paintcard.logo();
-}
+ System.out.println("\n" + name + " hand :");
+ for(int i = 0 ; i < hand.size() ; i++){
+     System.out.println((i+1) + ":");
+     paintcard = hand.get(i);
+     paintcard.logo();
+ }
+
+
+// public card showcards(deck deck) {
+
+//     System.out.println("\n" + name + " hand :");
+
+//     // numéros des cartes
+//     for (int i = 0; i < hand.size(); i++) {
+//         System.out.print("   " + (i + 1) + "       ");
+//     }
+//     System.out.println();
+
+//     // 9 lignes de hauteur de carte
+//     for (int row = 0; row < 9; row++) {
+//         for (int i = 0; i < hand.size(); i++) {
+//             hand.get(i).logo(row);
+//             System.out.print("  "); // espace entre cartes
+//         }
+//         System.out.println();
+//     }
+
+    
+
+
 
 while (true) {
     System.out.println(" \n choose a card to play, or press 0 to draw");//writing under the painted cards
