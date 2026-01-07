@@ -54,7 +54,7 @@ public class main {
         System.out.println("                    ║                                            ║");
         System.out.println("                    ║                                            ║");
         System.out.println("                    ║ "         +RED+ "           W E L C O M E"+ BLUE+"   T O " +WHITE+"            ║");
-        System.out.println("                    ║             " +GREEN+ " U N O   G A M E" +WHITE+"               ║");
+        System.out.println("                    ║             " +GREEN+ " T H E   G A M E" +WHITE+"               ║");
         System.out.println("                    ║                                            ║");
         System.out.println("                    "+WHITE+"║"+"    " + RED + "■■" + GREEN + "■■" + YELLOW + "■■" + BLUE + "■■" + YELLOW + "   LET'S PLAY!   " +
                            BLUE + "■■" + YELLOW + "■■" + GREEN + "■■" + RED + "■■" + WHITE + "       ║");
