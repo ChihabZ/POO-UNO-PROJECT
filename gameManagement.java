@@ -26,16 +26,28 @@ public class gameManagement {
         players = new ArrayList<>();
         for (String n : names) {
             players.add(new player(n));
-        if (n.equals("BOT")){
-         players.add(new bot("BOT"));
-
-        }
+        
 
         }        deck = new deck();
         initialDeal();
                          // distribuer 7 cartes q chaque player
                        // first card after initializing goes to the table, a part +4 ofc
     }
+
+
+
+public gameManagement(){
+    
+ players = new ArrayList<>();
+ players.add(new player("player"));
+ players.add(new bot("BOT"));
+
+
+
+}
+
+
+
 
     // voila le methode de distribution elewla g3
 
