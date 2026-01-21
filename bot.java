@@ -11,12 +11,13 @@ public class bot extends player {
                 if (c.allowplay(Deck.getTopDiscard())) {
                     Deck.addtodiscard(c);
                     getHand().remove(i);
+                    return c ;
                     
                 }
             }
             //ida ma3andoch 
             draw(1);
-            return c ;
+            return null;
         }
 
 
