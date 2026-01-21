@@ -1,6 +1,6 @@
 public class bot extends player {
 
-        public bot(deck Deck) {
+        public bot(String name) {
             super("BOT");
         }
         @Override
