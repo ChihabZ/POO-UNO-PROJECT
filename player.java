@@ -93,6 +93,9 @@ while (true) {
                 deck.addtodiscard(c);
                 hand.remove(index);
                 System.out.println(name + " played " + c); 
+                if (hand.size() == 1){
+                    System.out.println(name + " says: UNO!");
+                }
                 return c;
             }
         }
@@ -103,6 +106,9 @@ while (true) {
 //not sure if all classes are here so ill be working au fur et a mesure
 }// end showcards
 
+public List<card> getHand() {
+    return hand;
+}
 public boolean hasEmptyHand() {
     return hand.isEmpty();
 }

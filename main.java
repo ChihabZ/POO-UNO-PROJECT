@@ -124,7 +124,47 @@ public class main {
             game.announceWinner();
             break;
         
-            
-}}
+    //       case 2:
+    // System.out.println("Singleplayer mode selected.");
+    // players.add("Player");
+    // players.add("BOT");
+    // gameManagement game2 = new gameManagement(players);
+    
+    // // n7ato la 1ere carte f discard pile
+    // card firstCard2 = game2.getDeck().drawplus(1);
+    // game2.getDeck().addtodiscard(firstCard2);
+    // System.out.println("First card on discard:");
+    // firstCard2.logo();
+    // if (firstCard2 instanceof nonregular) {
+    //     nonregular nr = (nonregular) firstCard2;
+    //     if (nr.gettype() == type.wild || nr.gettype() == type.wild_4_plus) {
+    //         game2.chooseWildColor(firstCard2);
+    //     }
+    // }
+    
+    // // Game loop where players take turns w kda
+    // while (!game2.isGameOver()) {
+    //     player current = game2.getCurrentPlayer();
+    //     System.out.println("\n--- " + current.getName() + "'s turn ---");
+        
+    //     // Show top discard
+    //     card topDiscard2 = game2.getTopDiscard();
+    //     System.out.println("Top discard:");
+    //     topDiscard2.logo();
+        
+    //     // hna on controle le tour pour chaque joueur
+    //     card playedCard2 = current.showcards(game2.getDeck());
+    //     if (playedCard2 != null) {
+    //         game2.applyEffect(playedCard2);
+    //     }
+        
+    //     game2.nextPlayer();
+    // }
+    
+    // game2.announceWinner();
+    // break;  
+}
+    }
+
 }// ya khawti rni khaletha, zdt bzaf 3fays hhhhhh mais mzal ma drt bot 
 
