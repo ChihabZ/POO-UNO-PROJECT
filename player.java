@@ -94,6 +94,9 @@ while (true) {
                 deck.addtodiscard(c);
                 hand.remove(index);
                 System.out.println(name + " played " + c); 
+                if (hand.size() == 1){
+                    System.out.println(name + " says: UNO!");
+                }
                 return c;
             }
         }
