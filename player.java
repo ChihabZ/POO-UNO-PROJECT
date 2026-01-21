@@ -59,7 +59,6 @@ public void draw(int n){
 //         System.out.print("   " + (i + 1) + "       ");
 //     }
 //     System.out.println();
-
 //     // 9 lignes de hauteur de carte
 //     for (int row = 0; row < 9; row++) {
 //         for (int i = 0; i < hand.size(); i++) {
