@@ -107,6 +107,9 @@ while (true) {
 //not sure if all classes are here so ill be working au fur et a mesure
 }// end showcards
 
+public List<card> getHand() {
+    return hand;
+}
 public boolean hasEmptyHand() {
     return hand.isEmpty();
 }
