@@ -14,6 +14,9 @@ public class bot extends player {
             for (int i = 0; i < getHandSize(); i++) {
                 card c = getHand().get(i);
                 if (c.allowplay(Deck.getTopDiscard())) {
+                    if (c.getColor() == card.Color.WILD){
+                        c.setColor(card.Color.RED);
+                    }
                     Deck.addtodiscard(c);
                     getHand().remove(i);
                     System.out.println(getName() + " played " + c);
