@@ -24,11 +24,12 @@ public class gameManagement {
    
     public gameManagement(List<String> names) {
         players = new ArrayList<>();
+        deck = new deck();
         for (String n : names) {
-            players.add(new player(n));
+            players.add(new player(n, deck));
         
 
-        }        deck = new deck();
+        }        
         initialDeal();
                          // distribuer 7 cartes q chaque player
                        // first card after initializing goes to the table, a part +4 ofc
@@ -39,10 +40,10 @@ public class gameManagement {
 public gameManagement(){
     
  players = new ArrayList<>();
- players.add(new player("player"));
- players.add(new bot("BOT"));
-
-
+ deck = new deck();
+ players.add(new player("player", deck));
+ players.add(new bot("BOT", deck));
+ initialDeal();
 
 }
 

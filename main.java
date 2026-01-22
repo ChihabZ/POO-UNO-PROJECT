@@ -126,8 +126,7 @@ public class main {
         
           case 2:
     System.out.println("Singleplayer mode selected.");
-    players.add("Player");
-    players.add("BOT");
+    
     gameManagement game2 = new gameManagement();
     
     // n7ato la 1ere carte f discard pile

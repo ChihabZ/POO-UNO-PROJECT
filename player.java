@@ -9,7 +9,7 @@ private card card;
 private String name;
 private List<card> hand;
 private Scanner scan = new Scanner(System.in);
-private deck   deck = new deck();
+private deck   deck;
 
 //constructeur
 public player(String name){
@@ -17,6 +17,15 @@ public player(String name){
 this.name = name;
 this.hand = new ArrayList<>();
 
+
+}
+
+//constructeur with deck
+public player(String name, deck d){
+
+this.name = name;
+this.hand = new ArrayList<>();
+this.deck = d;
 
 }
 
