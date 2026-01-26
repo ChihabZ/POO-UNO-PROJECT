@@ -41,9 +41,9 @@ public class nonregular extends card implements drawable  {
     	}
 		return false;
 	}
-	/*public String toString() {
-        return color + " " + type;
-    }*/
+	// public String toString() {
+    //     return color + " " + type;
+    // }
 
 
 	//shyraazzzz

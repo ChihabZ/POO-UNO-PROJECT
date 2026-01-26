@@ -16,7 +16,11 @@ public class bot extends player {
                 if (c.allowplay(Deck.getTopDiscard())) {
                     Deck.addtodiscard(c);
                     getHand().remove(i);
-                    System.out.println(getName() + " played " + c);
+                    if (c instanceof nonregular){
+                    System.out.println( "\n"+toString(c)+((nonregular)c).gettype());}
+                    else {
+                        System.out.println( toString(c)+ ((regular)c).getnumber()+" "+((regular)c).getColor());
+                    }
                     if (getHandSize() == 1){
                         System.out.println(getName() + " says: UNO!");
                     }
@@ -30,7 +34,24 @@ public class bot extends player {
             return null;
         }
 
-
-
+public String toString(card c) {
+    String RED = "\u001B[31m";
+String GREEN = "\u001B[32m";
+String YELLOW = "\u001B[33m";
+String BLUE = "\u001B[34m";
+  
+    switch(c.getColor()){
+     
+        case red :
+          return RED + "\n BOT played "  ;
+        case blue :
+         return BLUE + "\n BOT played " ;
+        case green :
+         return GREEN + "\n BOT played " ;
+        case yellow :
+         return YELLOW + "BOT played ";
+         default:
+            return "\n BOT played " ;}
+    }
 
 }

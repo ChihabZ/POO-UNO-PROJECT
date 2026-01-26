@@ -51,7 +51,7 @@ public void draw(int n){
     
  card paintcard; //for the drawable card
 
- System.out.println("\n" + name + " hand :");
+ System.out.println("\n   " + name + " hand :");
  for(int i = 0 ; i < hand.size() ; i++){
      System.out.println((i+1) + ":");
      paintcard = hand.get(i);
@@ -59,30 +59,9 @@ public void draw(int n){
  }
 
 
-// public card showcards(deck deck) {
-
-//     System.out.println("\n" + name + " hand :");
-
-//     // numéros des cartes
-//     for (int i = 0; i < hand.size(); i++) {
-//         System.out.print("   " + (i + 1) + "       ");
-//     }
-//     System.out.println();
-//     // 9 lignes de hauteur de carte
-//     for (int row = 0; row < 9; row++) {
-//         for (int i = 0; i < hand.size(); i++) {
-//             hand.get(i).logo(row);
-//             System.out.print("  "); // espace entre cartes
-//         }
-//         System.out.println();
-//     }
-
-    
-
-
 
 while (true) {
-    System.out.println(" \n choose a card to play, or press 0 to draw");//writing under the painted cards
+    System.out.println(" \n   choose a card to play, or press 0 to draw");//writing under the painted cards
     int index = scan.nextInt();
     if(index == 0){
         draw(1);
@@ -91,17 +70,22 @@ while (true) {
         index--;// for machine array for that it starts from 0,im making it user friendly
         //the draw method()
         if(index < 0 || index >= hand.size()){
-            System.out.println("invalid index");
+            System.out.println("   invalid index");
             continue;
         } else {
             card c = hand.get(index);
             if(!c.allowplay(deck.getTopDiscard())){
-                System.out.println("you cant play this card");
+                System.out.println("   you cant play this card");
                 continue;
             } else {
                 deck.addtodiscard(c);
                 hand.remove(index);
-                System.out.println(name + " played " + c); 
+                if (c instanceof nonregular){
+                    System.out.println( "\n   "+getName()+((nonregular)c).gettype());}
+                else {
+                    System.out.println( "\n   "+getName()+((regular)c).getnumber());
+                }
+                
                 if (hand.size() == 1){
                     System.out.println(name + " says: UNO!");
                 }
