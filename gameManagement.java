@@ -98,11 +98,12 @@ public gameManagement(){
               nextPlayer();
               getCurrentPlayer().draw(2);
             }else if(nr.gettype()==type.wild_4_plus){
-              nextPlayer();
+            chooseWildColor(card,getCurrentPlayer()); // modif-----------------------------
+             nextPlayer();
               getCurrentPlayer().draw(4);
-              chooseWildColor(card);
+              
             }else if(nr.gettype() == type.wild){
-              chooseWildColor(card);
+              chooseWildColor(card,getCurrentPlayer());// modif-----------------------------
                
             } 
     
@@ -111,8 +112,11 @@ public gameManagement(){
 
    
     // choix de couleur pour wild+4
-    public void chooseWildColor(card card) {
-       
+    public void chooseWildColor(card card,player player) {
+        //ajout----------------------------------------------------------------
+       if (player instanceof bot){
+              ((bot)player).chooseColor(card);
+       }else{
     System.out.println("choose a color: 1.RED 2.BLUE 3.GREEN 4.YELLOW");
     int choice = scan.nextInt();
     switch(choice){
@@ -133,8 +137,11 @@ public gameManagement(){
         card.setColor(color.red);
         break;
        
-    }// end switch
-    }// end choose wild color
+    }}
+    // if (player instanceof bot) {
+
+    // }
+}// end choose wild color
 
 
     public void nextPlayer() {

@@ -19,11 +19,12 @@ public class bot extends player {
                     if (c instanceof nonregular){
                     System.out.println( "\n"+toString(c)+((nonregular)c).gettype());}
                     else {
-                        System.out.println( toString(c)+ ((regular)c).getnumber()+" "+((regular)c).getColor());
+                        System.out.println( toString(c)+ ((regular)c).getColor()+" "+((regular)c).getnumber());
                     }
                     if (getHandSize() == 1){
                         System.out.println(getName() + " says: UNO!");
                     }
+                   
                     return c ;
                     
                 }
@@ -33,6 +34,33 @@ public class bot extends player {
             draw(1);
             return null;
         }
+
+        
+       //ajout-----------------------------
+        public void chooseColor(card c) {
+ if (c instanceof nonregular){
+                        int n = (int)(Math.random() * 4) + 1;
+                        if(((nonregular)c).gettype() == type.wild || ((nonregular)c).gettype() == type.wild_4_plus){
+                            switch(n){
+                                case 1:
+                                    System.out.println("   BOT chose RED");
+                                    ((nonregular)c).setColor(color.red);
+                                    break;
+                                case 2:
+                                    System.out.println("   BOT chose BLUE");
+                                    ((nonregular)c).setColor(color.blue);
+                                    break;
+                                case 3:
+                                    System.out.println("   BOT chose GREEN");
+                                    ((nonregular)c).setColor(color.green);
+                                    break;
+                                case 4:
+                                    System.out.println("   BOT chose YELLOW");
+                                    ((nonregular)c).setColor(color.yellow);
+                                    break;
+                            }
+                        }
+                    }}
 
 public String toString(card c) {
     String RED = "\u001B[31m";

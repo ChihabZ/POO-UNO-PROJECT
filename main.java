@@ -13,6 +13,7 @@ public class main {
     public static final String YELLOW = "\u001B[33m";
     public static final String BLUE = "\u001B[34m";
     public static final String WHITE = "\u001B[37m";
+    public String reset = "\u001B[0m";
 
     public static void showWelcome() {
 
@@ -70,7 +71,7 @@ public class main {
             if (firstCard instanceof nonregular) {
                 nonregular nr = (nonregular) firstCard;
                 if (nr.gettype() == type.wild || nr.gettype() == type.wild_4_plus) {
-                    game.chooseWildColor(firstCard);
+                    game.chooseWildColor(firstCard, game.getCurrentPlayer());//modif------------------------------
                 }
             }
             
@@ -108,8 +109,9 @@ public class main {
     firstCard2.logo();
     if (firstCard2 instanceof nonregular) {
         nonregular nr = (nonregular) firstCard2;
+        
         if (nr.gettype() == type.wild || nr.gettype() == type.wild_4_plus) {
-            game2.chooseWildColor(firstCard2);
+            game2.chooseWildColor(firstCard2, game2.getCurrentPlayer());//modif=----------------------------------
         }
     }
     
