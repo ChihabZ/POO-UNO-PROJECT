@@ -80,6 +80,11 @@ public void refile(){
     Collections.shuffle(deck);// melanger les cartes
 
         for(card carte:deck){
+          if (carte instanceof nonregular){
+            if (((nonregular)carte).gettype() == type.wild || ((nonregular)carte).gettype() == type.wild_4_plus){
+              ((nonregular)carte).setColor(color.WILD);
+            }
+          }
       drawpile.push(carte);
        }
   
