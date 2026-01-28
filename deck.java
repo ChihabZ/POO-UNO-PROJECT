@@ -92,7 +92,11 @@ public void refile(){
 }
 }
 
-  
+  public card addtodraw(card card){
+  drawpile.push(card);
+  return card;
+
+}
 
 public card addtodiscard(card card){
   discardpile.push(card);

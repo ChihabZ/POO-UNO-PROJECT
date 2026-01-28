@@ -1,8 +1,7 @@
+
 public class bot extends player {
 
-        public bot(String name) {
-            super("BOT");
-        }
+        
         
         public bot(String name, deck d) {
             super("BOT", d);

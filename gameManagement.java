@@ -1,163 +1,156 @@
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
 public class gameManagement {
+   private final List<player> players;
+   private deck deck;
+   private int direction = 1;
+   private int current = 0;
+   private Scanner scan;
 
-    private final List<player> players;
-    private deck deck;
-    private int direction = 1;
-    private int current = 0;
-    private Scanner scan = new Scanner(System.in);
+   public gameManagement(List<String> var1) {
+      this.scan = new Scanner(System.in);
+      this.players = new ArrayList();
+      this.deck = new deck();
+      Iterator var2 = var1.iterator();
 
-    // Constructeur t3 les joueues w g3 wch ys79o
+      while(var2.hasNext()) {
+         String var3 = (String)var2.next();
+         this.players.add(new player(var3, this.deck));
+      }
 
-    public gameManagement(List<String> names) {
-        players = new ArrayList<>();
-        deck = new deck();
-        for (String n : names) {
-            players.add(new player(n, deck));
+      this.initialDeal();
+   }
 
-        }
-        initialDeal();
-        // distribuer 7 cartes q chaque player
-        // first card after initializing goes to the table, a part +4 ofc
-    }
+   public gameManagement() {
+      this.scan = new Scanner(System.in);
+      this.players = new ArrayList();
+      this.deck = new deck();
+      this.players.add(new player("player", this.deck));
+      this.players.add(new bot("BOT", this.deck));
+      this.initialDeal();
+   }
 
-    public gameManagement() {
+   private void initialDeal() {
+      for(int var1 = 0; var1 < this.players.size(); ++var1) {
+         for(int var2 = 0; var2 < 7; ++var2) {
+            ((player)this.players.get(var1)).draw(1);
+         }
+      }
 
-        players = new ArrayList<>();
-        deck = new deck();
-        players.add(new player("player", deck));
-        players.add(new bot("BOT", deck));
-        initialDeal();
+   }
 
-    }
-
-    // voila le methode de distribution elewla g3
-
-    private void initialDeal() {
-        // 7cards each(tserbi)
-
-        for (int index = 0; index < players.size(); index++) {
-
-            for (int i = 0; i < 7; i++) {
-
-                players.get(index).draw(1);
-
+   public void applyEffect(card var1) {
+      if (var1 instanceof nonregular var2) {
+         if (var2.gettype() == type.SKIP) {
+            this.nextPlayer();
+         } else if (var2.gettype() == type.REVERSE) {
+            if (this.players.size() == 2) {
+               this.nextPlayer();
+            } else {
+               this.direction *= -1;
             }
-        }
-    }// end class initialDeal
+         } else if (var2.gettype() == type.PLUS2) {
+            this.nextPlayer();
+            this.getCurrentPlayer().draw(2);
+         } else if (var2.gettype() == type.wild_4_plus) {
+            this.chooseWildColor(var1, this.getCurrentPlayer());
+            this.nextPlayer();
+            this.getCurrentPlayer().draw(4);
+         } else if (var2.gettype() == type.wild) {
+            this.chooseWildColor(var1, this.getCurrentPlayer());
+            this.nextPlayer();
+         }
 
-    // the effect ta3na sma ya effet 3la le prochain ya effet ela jeu g3
-    public void applyEffect(card card) {
-        if (!(card instanceof nonregular)) {
-            return; // Regular cards have no effect
-        }
-        nonregular nr = (nonregular) card;
+      }
+   }
 
-        if (nr.gettype() == type.SKIP) {
+   public void chooseWildColor(card var1, player var2) {
+      if (var2 instanceof bot) {
+         ((bot)var2).chooseColor(var1);
+      } else {
+         System.out.println("choose a color: 1.RED 2.BLUE 3.GREEN 4.YELLOW");
+         int var3 = this.scan.nextInt();
+         switch (var3) {
+            case 1:
+               var1.setColor(color.red);
+               break;
+            case 2:
+               var1.setColor(color.blue);
+               break;
+            case 3:
+               var1.setColor(color.green);
+               break;
+            case 4:
+               var1.setColor(color.yellow);
+               break;
+            default:
+               System.out.println("invalid choice, color set to RED by default");
+               var1.setColor(color.red);
+         }
+      }
 
-            nextPlayer();
-        } else if (nr.gettype() == type.REVERSE) {
-            direction *= -1;
-        } else if (nr.gettype() == type.PLUS2) {
-            nextPlayer();
-            getCurrentPlayer().draw(2);
-        } else if (nr.gettype() == type.wild_4_plus) {
-            chooseWildColor(card, getCurrentPlayer()); // modif-----------------------------
-            nextPlayer();
-            getCurrentPlayer().draw(4);
+   }
 
-        } else if (nr.gettype() == type.wild) {
-            chooseWildColor(card, getCurrentPlayer());// modif-----------------------------
+   public void nextPlayer() {
+      this.current = (this.current + this.direction + this.players.size()) % this.players.size();
+   }
 
-        }
+   public player getCurrentPlayer() {
+      return (player)this.players.get(this.current);
+   }
 
-    }
+   public card getTopDiscard() {
+      return this.deck.getTopDiscard();
+   }
 
-    // choix de couleur pour wild+4
-    public void chooseWildColor(card card, player player) {
-        // ajout----------------------------------------------------------------
-        if (player instanceof bot) {
-            ((bot) player).chooseColor(card);
-        } else {
-            System.out.println("choose a color: 1.RED 2.BLUE 3.GREEN 4.YELLOW");
-            int choice = scan.nextInt();
-            switch (choice) {
-                case 1:
-                    card.setColor(color.red);
-                    break;
-                case 2:
-                    card.setColor(color.blue);
-                    break;
-                case 3:
-                    card.setColor(color.green);
-                    break;
-                case 4:
-                    card.setColor(color.yellow);
-                    break;
-                default:
-                    System.out.println("invalid choice, color set to RED by default");
-                    card.setColor(color.red);
-                    break;
+   public boolean isGameOver() {
+      Iterator var1 = this.players.iterator();
 
-            }
-        }
-        // if (player instanceof bot) {
+      player var2;
+      do {
+         if (!var1.hasNext()) {
+            return false;
+         }
 
-        // }
-    }// end choose wild color
+         var2 = (player)var1.next();
+      } while(!var2.hasEmptyHand());
 
-    public void nextPlayer() {
-        current = (current + direction + players.size()) % players.size();
+      return true;
+   }
 
-    }// end next player
+   public void announceWinner() {
+      Iterator var1 = this.players.iterator();
 
-    public player getCurrentPlayer() {
-        return players.get(current);
-    }// end get current player
+      player var2;
+      do {
+         if (!var1.hasNext()) {
+            return;
+         }
 
-    public card getTopDiscard() {
-        return deck.getTopDiscard();
+         var2 = (player)var1.next();
+      } while(!var2.hasEmptyHand());
 
-    }// end get top discard
+      System.out.println("                    ╔═════════════════════════════════════════════════════╗");
+      System.out.println("                    ║                                                     ║");
+      System.out.println("                    ║   ███████      ███      ███       ███    ████████   ║");
+      System.out.println("                    ║  ██           █   █     ██ █     █ ██    ██         ║");
+      System.out.println("                    ║  ██          █     █    ██  █   █  ██    ████████   ║");
+      System.out.println("                    ║  ██    ██   █████████   ██   █ █   ██    ██         ║");
+      System.out.println("                    ║   ███████  ██       ██  ██   ███   ██    ████████   ║");
+      System.out.println("                    ║                                                     ║");
+      System.out.println("                    ║                       O V E R                       ║");
+      System.out.println("                    ║                                                     ║");
+      System.out.println("                    ╚═════════════════════════════════════════════════════╝");
+      System.out.println("THE WINNER IS " + var2.getName() + "!");
+   }
 
-    public boolean isGameOver() {
-        for (player p : players) {
-            if (p.hasEmptyHand()) {
-                return true;
-            }
-        }
-        return false;
-
-    }// end isGameOver
-
-    public void announceWinner() {
-        for (player p : players) {
-            if (p.hasEmptyHand()) {
-                System.out.println("                    ╔═════════════════════════════════════════════════════╗");
-                System.out.println("                    ║                                                     ║");
-                System.out.println("                    ║   ███████      ███      ███       ███    ████████   ║");
-                System.out.println("                    ║  ██           █   █     ██ █     █ ██    ██         ║");
-                System.out.println("                    ║  ██          █     █    ██  █   █  ██    ████████   ║");
-                System.out.println("                    ║  ██    ██   █████████   ██   █ █   ██    ██         ║");
-                System.out.println("                    ║   ███████  ██       ██  ██   ███   ██    ████████   ║");
-                System.out.println("                    ║                                                     ║");
-                System.out.println("                    ║                       O V E R                       ║");
-                System.out.println("                    ║                                                     ║");
-                System.out.println("                    ╚═════════════════════════════════════════════════════╝");
-                System.out.println("THE WINNER IS " + p.getName() + "!");
-                return;
-            }
-        }
-
-    }// end announce winner
-
-    public deck getDeck() {
-        return deck;
-    }
+   public deck getDeck() {
+      return this.deck;
+   }
 }
 
 /*

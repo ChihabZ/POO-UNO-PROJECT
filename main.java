@@ -63,24 +63,33 @@ public class main {
                 }
                 gameManagement game = new gameManagement(players);
 
-                // n7ato la 1ere carte f discard pile
-                card firstCard = game.getDeck().drawplus(1);
+                // n7ato la 1ere carte f discard pile (not wild)
+                card firstCard;
+                do {
+                    firstCard = game.getDeck().drawplus(1);
+                    if (firstCard instanceof nonregular && 
+                        (((nonregular) firstCard).gettype() == type.wild || 
+                         ((nonregular) firstCard).gettype() == type.wild_4_plus)) {
+                        // put wild card back to the drawpile
+                        game.getDeck().addtodraw(firstCard);
+                    }
+                } while (firstCard instanceof nonregular && 
+                         (((nonregular) firstCard).gettype() == type.wild || 
+                          ((nonregular) firstCard).gettype() == type.wild_4_plus));
+                
+                          //first card after verification ofc 
                 game.getDeck().addtodiscard(firstCard);
                 System.out.println("   First card on discard:");
                 firstCard.logo();
-                if (firstCard instanceof nonregular) {
-                    nonregular nr = (nonregular) firstCard;
-                    if (nr.gettype() == type.wild || nr.gettype() == type.wild_4_plus) {
-                        game.chooseWildColor(firstCard, game.getCurrentPlayer());// modif------------------------------
-                    }
-                }
 
                 // Game loop where players take turns w kda
+
+
                 while (!game.isGameOver()) {
                     player current = game.getCurrentPlayer();
                     System.out.println("\n   --- " + current.getName() + "'s turn ---");
 
-                    // Show top discard
+                    // show top discard
                     card topDiscard = game.getTopDiscard();
                     System.out.println("   Top discard:");
                     topDiscard.logo();
@@ -102,18 +111,24 @@ public class main {
 
                 gameManagement game2 = new gameManagement();
 
-                // n7ato la 1ere carte f discard pile
-                card firstCard2 = game2.getDeck().drawplus(1);
+                // n7ato la 1ere carte f discard pile (not wild)
+                card firstCard2;
+                do {
+                    firstCard2 = game2.getDeck().drawplus(1);
+                    if (firstCard2 instanceof nonregular && 
+                        (((nonregular) firstCard2).gettype() == type.wild || 
+                         ((nonregular) firstCard2).gettype() == type.wild_4_plus)) {
+                        // put wild card back to the drawpile
+                        game2.getDeck().addtodraw(firstCard2);
+                    }
+                } while (firstCard2 instanceof nonregular && 
+                         (((nonregular) firstCard2).gettype() == type.wild || 
+                          ((nonregular) firstCard2).gettype() == type.wild_4_plus));
+                
+                          //hna n7to la carte mor la verification :3
                 game2.getDeck().addtodiscard(firstCard2);
                 System.out.println("   First card on discard:");
                 firstCard2.logo();
-                if (firstCard2 instanceof nonregular) {
-                    nonregular nr = (nonregular) firstCard2;
-
-                    if (nr.gettype() == type.wild || nr.gettype() == type.wild_4_plus) {
-                        game2.chooseWildColor(firstCard2, game2.getCurrentPlayer());// modif=----------------------------------
-                    }
-                }
 
                 // Game loop where players take turns w kda
                 while (!game2.isGameOver()) {
@@ -140,3 +155,4 @@ public class main {
     }
 
 }// ya khawti rni khaletha, zdt bzaf 3fays hhhhhh mais mzal ma drt bot
+
