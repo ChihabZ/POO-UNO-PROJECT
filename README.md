@@ -1,2 +1,4 @@
+This project was delivered by a group of computer engineering students for their OOP cource
+https://discord.com/channels/@me/1370074425717952522/1466057587286868232
 blue print of the cards:
 https://cdn.discordapp.com/attachments/1370074425717952522/1466042487402664007/20260128_130843.jpg?ex=697b4df6&is=6979fc76&hm=5f99269524fca97248e705dba7dc9b4f32f547a01e2347742fa7b54505b7eb73
