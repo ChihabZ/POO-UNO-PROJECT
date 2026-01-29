@@ -6,4 +6,4 @@ https://drive.google.com/drive/folders/1Vb6wkKBlzD_Y1whXJy5j_1VRZujZ83O1?usp=sha
 
 
 🎴BLUEPRINTOF THE CARDS
-![blueprint_uno](https://github.com/user-attachments/assets/b03f1cdc-ee49-4cd4-b03b-c1a70b98c504)
+![blueprint_uno](https://github.com/user-attachments/assets/ee2b7492-53c7-4e16-b763-5d3a6624a4a9)
