@@ -5,5 +5,4 @@ OUTPUT OF THE PROGRAM
 https://drive.google.com/drive/folders/1Vb6wkKBlzD_Y1whXJy5j_1VRZujZ83O1?usp=sharing  
 
 
-🎴BLUEPRINT OF THE CARDS:
-https://cdn.discordapp.com/attachments/1370074425717952522/1466042487402664007/20260128_130843.jpg?ex=697b4df6&is=6979fc76&hm=5f99269524fca97248e705dba7dc9b4f32f547a01e2347742fa7b54505b7eb73
+🎴BLUEPRINTOF THE CARDS
